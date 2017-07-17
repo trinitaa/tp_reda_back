@@ -1,0 +1,4 @@
+users : 
+  type: rest
+  resource:     "AppBundle:ArticleRest"
+  name_prefix:  api_

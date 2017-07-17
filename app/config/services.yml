@@ -1,0 +1,19 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+    manager.class :  AppBundle\Services\ArticleManager
+    article.class : AppBundle\Entity\Article
+services:
+    #service_name:
+    #    class: AppBundle\Directory\ClassName
+    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    article.manager:
+        class: '%manager.class%'
+        arguments: ['@event_dispatcher' ,'@article.repository', '@doctrine.orm.entity_manager', '%article.class%']
+
+    article.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            -  '%article.class%'
