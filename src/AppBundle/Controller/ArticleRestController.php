@@ -9,7 +9,7 @@
  */
 namespace AppBundle\Controller;
 
-use AppBundle\Form\ArticleType;
+use AppBundle\Form\Type\ArticleType;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View;
